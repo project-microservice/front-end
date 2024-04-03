@@ -1,0 +1,25 @@
+.centered-text {
+  text-align: center;
+}
+.login-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  p {
+    width: 360px;
+    margin-top: 10px;
+  }
+}
+
+.login-logout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  a {
+    display: block;
+    width: 154px;
+    text-decoration: none;
+  }
+}
