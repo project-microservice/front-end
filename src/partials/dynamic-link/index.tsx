@@ -21,6 +21,7 @@ function DynamicLink({
   hover,
   smember,
   mainMenu,
+  filter,
   ...unknownProps
 }: any) {
   let Component: ComponentType<any> | string = 'button';
@@ -47,6 +48,7 @@ function DynamicLink({
     hover,
     smember,
     mainMenu,
+    filter,
   });
 
   if (mainMenu && typeof children === 'object') {

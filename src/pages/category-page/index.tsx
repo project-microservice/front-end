@@ -1,34 +1,27 @@
 import { useParams } from 'react-router-dom';
 import styles from './category-page.module.scss';
 import classNames from 'classnames/bind';
-import axiosInstance from '@/services';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { fetchProduct } from '@/redux/action/productAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '@/redux';
+import Filter from '@/components/filter';
+import ListProduct from '@/components/list-product';
 const cx = classNames.bind(styles);
 
 function CategoryPage() {
-  const param = useParams();
-  const [categoryId, setCategoryId] = useState(1);
-  const fetchData = async () => {
-    try {
-      const result = await axiosInstance.get(`/product`, {
-        params: {
-          categoryId,
-        },
-      });
-      console.log(result);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+  const { id } = useParams();
+  const dispatch = useDispatch<AppDispatch>();
+  const productState = useSelector((state: RootState) => state.productReducer);
 
   useEffect(() => {
-    fetchData();
-  }, [categoryId]);
-
+    id && dispatch(fetchProduct(parseInt(id, 10)));
+  }, [dispatch]);
   return (
-    <div>
-      <h1>{param.id}</h1>
-    </div>
+    <section>
+      <Filter />
+      <ListProduct productState={productState} />
+    </section>
   );
 }
 

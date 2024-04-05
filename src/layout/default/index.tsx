@@ -13,10 +13,11 @@ import LocationModal from '@/partials/location-modal';
 import { toggleLogin, toggleLocation } from '@/redux/slices/toggleSlices';
 
 function DefaultLayout({ children }: any) {
-  const toggleModal = useSelector((state: RootState) => state.toggleSlices);
+  const toggleModal = useSelector((state: RootState) => state.toggleReducer);
   const dispatch = useDispatch();
   const closeLoginModal = () => dispatch(toggleLogin());
   const closeLocationModal = () => dispatch(toggleLocation());
+
   const { login, location } = toggleModal;
   return (
     <div className={cx('layout-desktop')}>

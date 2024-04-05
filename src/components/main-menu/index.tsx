@@ -16,73 +16,72 @@ import {
   faTrademark,
   faUsd,
 } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react/headless';
 const cx = classNames.bind(styles);
 
 export interface MainMenuInterface {
   display: string[];
-  path: string[];
+  path: number[];
   icon: any;
 }
 const mainMenuData: MainMenuInterface[] = [
   {
     display: ['Điện thoại', 'Tablet'],
-    path: ['phone', 'tablet'],
+    path: [1, 2],
     icon: faMobilePhone,
   },
   {
     display: ['Laptop'],
-    path: ['laptop'],
+    path: [3],
     icon: faLaptop,
   },
   {
     display: ['Âm Thanh'],
-    path: ['sound'],
+    path: [4],
     icon: faHeadphones,
   },
   {
     display: ['Đồng Hồ', 'Camera'],
-    path: ['watch', 'camera'],
+    path: [5, 6],
     icon: faCamera,
   },
   {
     display: ['Gia dụng', 'Smarthome'],
-    path: ['facilities', 'smarthome'],
+    path: [7, 8],
     icon: faHome,
   },
   {
     display: ['Phụ kiện'],
-    path: ['accessories'],
+    path: [9],
     icon: faUsd,
   },
   {
     display: ['PC', 'Màn Hình'],
-    path: ['pc', 'screen'],
+    path: [10, 11],
     icon: faComputer,
   },
   {
     display: ['Tivi'],
-    path: ['television'],
+    path: [12],
     icon: faTelevision,
   },
   {
     display: ['Thu cũ đổi mới'],
-    path: ['watch', 'camera'],
+    path: [13, 14],
     icon: faTrademark,
   },
   {
     display: ['Hàng cũ'],
-    path: ['trading'],
+    path: [15],
     icon: faDashboard,
   },
   {
     display: ['Khuyến mãi'],
-    path: ['watch', 'camera'],
+    path: [16, 17],
     icon: faPercentage,
   },
   {
     display: ['Tin công nghệ'],
-    path: ['news'],
+    path: [18],
     icon: faNewspaper,
   },
 ];

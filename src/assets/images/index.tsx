@@ -6,6 +6,7 @@ import banner5 from '@/assets/images/banner5.png';
 import banner6 from '@/assets/images/banner6.png';
 import logo from '@/assets/images/logo.svg';
 import chibi from '@/assets/images/chibi2.png';
+import sampleProduct from '@/assets/images/sample-product.png';
 const images = {
   banner1,
   banner2,
@@ -15,6 +16,7 @@ const images = {
   banner6,
   logo,
   chibi,
+  sampleProduct,
   // banner_2: require('~/assets/images/child-banner-2.svg').default,
   // banner_3: require('~/assets/images/child-banner-3.svg').default,
   // logo: require('~/assets/images/logo.svg').default,
