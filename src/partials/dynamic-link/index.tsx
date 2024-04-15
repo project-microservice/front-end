@@ -1,10 +1,10 @@
 import { ComponentType } from 'react';
 import styles from './dynamic-link.module.scss';
 import classNames from 'classnames/bind';
-const cx = classNames.bind(styles);
 import { NavLink } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { MainMenuInterface } from '@/components/main-menu';
+import { IconComponent } from '../icon';
+const cx = classNames.bind(styles);
 
 function DynamicLink({
   icon,
@@ -29,7 +29,7 @@ function DynamicLink({
     onClick,
     ...unknownProps,
   };
-  let styleCustom: any = {
+  let style: any = {
     width: `${width}px`,
     height: `${height}px`,
   };
@@ -53,33 +53,29 @@ function DynamicLink({
 
   if (mainMenu && typeof children === 'object') {
     const item: MainMenuInterface = children;
-    const newStyle = { color: 'black', ...styleCustom };
+    const newStyle = { color: 'black', ...style };
 
     return (
-      <div className={classes} {...props}>
+      <Component className={classes} {...props}>
         <div className={cx('left-content')}>
-          <FontAwesomeIcon icon={item.icon} style={newStyle} />
-          {item.display.map((categoryName, index) => (
-            <NavLink key={index} to={`/category/${item.path[index]}`} className={cx('item')}>
-              {categoryName}
-            </NavLink>
-          ))}
+          <IconComponent iconName={item.icon} style={newStyle} />
+          <span>{item.categoryName}</span>
         </div>
         <div className={cx('right-content')}>
-          <FontAwesomeIcon icon={subIcon} style={{ width: 10, height: 10, color: 'black' }} />
+          <IconComponent iconName={subIcon} style={{ width: 10, height: 10, color: 'black' }} />
         </div>
-      </div>
+      </Component>
     );
   }
 
   if (subIcon && icon && locationValue) {
     return (
       <Component className={classes} {...props}>
-        <FontAwesomeIcon icon={icon} style={styleCustom} />
+        <IconComponent iconName={icon} style={style} />
         <div className={cx('box-content')}>
           <div className={cx('title')}>
             <div>{children}</div>
-            <FontAwesomeIcon icon={subIcon} />
+            <IconComponent iconName={subIcon} />
           </div>
           <div className={cx('location')}>{locationValue}</div>
         </div>
@@ -90,7 +86,7 @@ function DynamicLink({
   if (icon) {
     return (
       <Component className={classes} {...props}>
-        <FontAwesomeIcon icon={icon} style={styleCustom} />
+        <IconComponent iconName={icon} style={style} />
         {children && <div>{children}</div>}
       </Component>
     );

@@ -1,19 +1,20 @@
-import images from '@/assets/images';
 import styles from './product-card.module.scss';
 import classNames from 'classnames/bind';
 import { NavLink } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 function ProductCard({ data }: any) {
-  const { productName, regularPrice, id } = data;
+  const { productName, regularPrice, id, thumbnailPath } = data;
+
   const formattedRegularPrice = regularPrice.toLocaleString('vi-VN', {
     style: 'currency',
     currency: 'VND',
   });
+
   return (
     <NavLink to={`/product/${id}`} className={cx('product-card-wrapper')}>
       <div className={cx('product-image')}>
-        <img src={images.sampleProduct} alt="" />
+        <img src={thumbnailPath} alt="yyyy" />
       </div>
       <div className={cx('product-name')}>
         <h3>{productName}</h3>

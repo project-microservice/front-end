@@ -7,7 +7,6 @@
 .logo {
   img {
     width: 161px;
-    // height: 52px;
     padding: 0.5rem 0.75rem;
   }
 }
@@ -81,6 +80,7 @@
   &:hover {
     background: #f3f4f6;
     border-radius: 5px;
+    color: red;
   }
   .left-content {
     display: flex;
@@ -90,9 +90,9 @@
       margin-right: 2px;
       font-weight: 400;
       color: black;
-      &:hover {
-        color: red;
-      }
+    }
+    span {
+      font-weight: bold !important;
     }
   }
 

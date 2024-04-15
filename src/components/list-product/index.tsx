@@ -1,15 +1,30 @@
+import { useDispatch, useSelector } from 'react-redux';
 import ProductCard from '../product-card';
 import styles from './list-product.module.scss';
 import classNames from 'classnames/bind';
+import { AppDispatch, RootState } from '@/redux';
+import { useEffect } from 'react';
+import { fetchProduct } from '@/redux/action';
 const cx = classNames.bind(styles);
 
-function ListProduct({ productState }: any) {
-  console.log(productState);
-  if (productState.loading === true) return <div>Loading...</div>;
-  if (productState.products)
+function ListProduct({ categoryId }: { categoryId: string }) {
+  const dispatch = useDispatch<AppDispatch>();
+  const productState = useSelector((state: RootState) => state.product);
+
+  useEffect(() => {
+    if (categoryId) {
+      const payload = { categoryId: parseInt(categoryId, 10) };
+      dispatch(fetchProduct(payload));
+    }
+  }, [dispatch]);
+
+  const { products, loading, error } = productState;
+  if (loading) return <div>Loading...</div>;
+  if (products && products.length === 0) return <div>No Product to display</div>;
+  if (products)
     return (
       <div className={cx('product-card-wrapper')}>
-        {productState.products.map((data: any, index: number) => (
+        {products.map((data: any, index: number) => (
           <ProductCard key={index} data={data} />
         ))}
       </div>

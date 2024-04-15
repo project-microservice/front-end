@@ -1,6 +1,7 @@
 import images from '@/assets/images';
 import styles from './banner.module.scss';
 import classNames from 'classnames/bind';
+import { memo } from 'react';
 const cx = classNames.bind(styles);
 const listBanner = [images.banner1, images.banner2, images.banner3];
 
@@ -20,4 +21,4 @@ function Banner() {
   );
 }
 
-export default Banner;
+export default memo(Banner);
