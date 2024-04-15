@@ -1,11 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import toggleReducer from './slices/toggleSlices';
-import productReducer from './slices/productSlices';
+import { toggle, product, category } from './slices';
+
+const rootReducer = {
+  category,
+  toggle,
+  product,
+};
+
 export const store = configureStore({
-  reducer: {
-    toggleReducer,
-    productReducer,
-  },
+  reducer: rootReducer,
 });
 
 export type RootState = ReturnType<typeof store.getState>;

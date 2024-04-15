@@ -1,13 +1,12 @@
 import DynamicLink from '@/partials/dynamic-link';
 import styles from './filter.module.scss';
 import classNames from 'classnames/bind';
-import { faArrowDownWideShort, faEye, faPercentage } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 const filterItems = [
-  { children: 'Giá Cao - Thấp', icon: faArrowDownWideShort },
-  { children: 'Giá Thấp - Cao', icon: faArrowDownWideShort },
-  { children: 'Khuyến mãi hot', icon: faPercentage },
-  { children: 'Xem nhiều', icon: faEye },
+  { children: 'Giá Cao - Thấp', icon: 'faArrowDownWideShort' },
+  { children: 'Giá Thấp - Cao', icon: 'faArrowDownWideShort' },
+  { children: 'Khuyến mãi hot', icon: 'faPercentage' },
+  { children: 'Xem nhiều', icon: 'faEye' },
 ];
 function Filter() {
   return (

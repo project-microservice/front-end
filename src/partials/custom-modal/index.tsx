@@ -1,14 +1,18 @@
+import { Modal, Sheet } from '@mui/joy';
 import styles from './custom-modal.module.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
-import { Modal } from 'react-bootstrap';
 
-function CustomModal({ children, ...props }: any) {
+const CustomModal = ({ open, onClose, children, sx }: any) => {
   return (
-    <Modal {...props} className={cx('custom-modal')} aria-labelledby="contained-modal-title-vcenter" centered>
-      {children}
+    <Modal
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+      open={open}
+      onClose={onClose}
+      sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <Sheet sx={sx}>{children}</Sheet>
     </Modal>
   );
-}
-
+};
 export default CustomModal;

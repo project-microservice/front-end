@@ -1,7 +1,5 @@
-import CategoryPage from '@/pages/category-page';
-import HomePage from '@/pages/home-page';
-import ProductPage from '@/pages/product-page';
 import { ComponentType } from 'react';
+import { CategoryPage, HomePage, ProductPage } from '@/pages';
 
 export interface RouteInterface {
   path: string;
@@ -11,8 +9,8 @@ export interface RouteInterface {
 
 const publicRoutes: RouteInterface[] = [
   { path: '/', component: HomePage },
-  { path: '/category/:id', component: CategoryPage },
-  { path: '/product/:id', component: ProductPage },
+  { path: '/category/:categoryId', component: CategoryPage },
+  { path: '/product/:productId', component: ProductPage },
 ];
 
 const privateRoutes = [];
